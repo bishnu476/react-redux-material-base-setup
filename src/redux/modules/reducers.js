@@ -2,13 +2,14 @@
 
 import { combineReducers } from 'redux';
 import userAuth from './userAuth';
-import flowvityStateData from './flowvityStates';
+import testData from './test';
 
 export const reducers = {
   userAuth,
+  testData
 };
 const appReducer = combineReducers({
-  ...reducers, flowvityStateData
+  ...reducers,
 });
 const rootReducer = (state, action) => {
   // when a logout action is dispatched it will reset redux state
@@ -22,16 +23,16 @@ const rootReducer = (state, action) => {
       const nextState = {
         ...action.payload, // use state from local browser
       };
-      if(state.flowvityStateData && state.flowvityStateData.agentSelect){
-        state.flowvityStateData.agentSelect = {
-          ...nextState.flowvityStateData.agentSelect,
-          ...state.flowvityStateData.agentSelect
+      if(state.testData && state.testData.agentSelect){
+        state.testData.agentSelect = {
+          ...nextState.testData.agentSelect,
+          ...state.testData.agentSelect
         }
       }
-      if(state.flowvityStateData && state.flowvityStateData.agentFormSubmitted){
-        state.flowvityStateData.agentFormSubmitted = {
-          ...nextState.flowvityStateData.agentFormSubmitted,
-          ...state.flowvityStateData.agentFormSubmitted
+      if(state.testData && state.testData.agentFormSubmitted){
+        state.testData.agentFormSubmitted = {
+          ...nextState.testData.agentFormSubmitted,
+          ...state.testData.agentFormSubmitted
         }
       }
       /*if (state.hallInfo && state.hallInfo.hallData) {
