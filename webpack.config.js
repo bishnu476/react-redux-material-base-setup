@@ -8,20 +8,27 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
-      },
-    ],
+        use: ['babel-loader']
+
+      }
+    ]
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ['*', '.js', '.jsx']
   },
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'bundle.js',
+    filename: 'bundle.js'
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  target: ['web', 'es5'],
+  plugins: [
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+  ],
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),
-    hot: true,
-  },
+    hot: true
+  }
 };

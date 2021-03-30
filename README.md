@@ -8,7 +8,7 @@ Read how to set it up yourself: [React with Webpack Tutorial](https://www.robinw
 
 ## Features
 
-- React 16
+- React 17
 - Webpack 5
 - Babel 7
 - Hot Module Replacement
